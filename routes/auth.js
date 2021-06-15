@@ -42,7 +42,11 @@ router.post("/signup", async (req, res) => {
     const newUser = await user.save();
 
     res.json({
-      data: newUser,
+      data: {
+        email: newUser.email,
+        fullName: newUser.fullName,
+        msg: "Registration Completed Successfully",
+      },
     });
   } catch (err) {
     res.status(400).json({ err });
@@ -78,6 +82,7 @@ router.post("/signin", async (req, res) => {
       access: true,
       userEmail: user.email,
       userName: user.fullName,
+      jwtToken,
     },
   });
 });

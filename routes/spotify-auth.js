@@ -4,7 +4,6 @@ const querystring = require("querystring");
 const randomstring = require("randomstring");
 
 router.get("/login-spotify", function (req, res) {
-  console.log("object");
   const state = randomstring.generate({
     length: 16,
     charset: "alphabetic",
@@ -23,7 +22,6 @@ router.get("/login-spotify", function (req, res) {
   );
 });
 router.get("/callback", function (req, res) {
-  console.log("me ll");
   const code = req.query.code || null;
   const state = req.query.state || null;
   if (state === null) {
@@ -56,7 +54,7 @@ router.get("/callback", function (req, res) {
       if (!error && response.statusCode === 200) {
         const access_token = body.access_token;
         res.redirect(
-          "http://localhost:3000/home#" +
+          "http://localhost:8080/home#" +
             querystring.stringify({
               access_token: access_token,
             })

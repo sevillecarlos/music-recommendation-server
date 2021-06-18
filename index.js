@@ -1,17 +1,17 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 
 require("dotenv").config();
 
+const spotifyAuth = require("./routes/spotify-auth");
 const auth = require("./routes/auth");
 
 const app = express();
 const port = process.env.PORT || 3000;
 const uri = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.73fv4.mongodb.net/${process.env.DATABASE_NAME}?retryWrites=true&w=majority`;
-
-app.use(express.json()).use(auth);
+app.use(cors());
+app.use(express.json()).use(auth).use(spotifyAuth);
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })

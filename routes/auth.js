@@ -77,13 +77,28 @@ router.post("/signin", async (req, res) => {
     process.env.TOKEN_SECRET
   );
 
+  console.log();
+
   res.header("auth-token", jwtToken).json({
     data: {
-      access: true,
       userEmail: user.email,
       userName: user.fullName,
+      userID: user._id,
       jwtToken,
     },
   });
+});
+
+router.post("/get-user", async (req, res) => {
+  const user = await User.findOne({ _id: req.body._id });
+  console.log(user)
+  try {
+    res.json({
+      email: user.email,
+      name: user.fullName,
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 module.exports = router;

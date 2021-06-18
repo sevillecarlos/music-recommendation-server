@@ -49,7 +49,6 @@ router.get("/callback", function (req, res) {
       },
       json: true,
     };
-    //add token to the login user
     request.post(authOptions, function (error, response, body) {
       if (!error && response.statusCode === 200) {
         const access_token = body.access_token;

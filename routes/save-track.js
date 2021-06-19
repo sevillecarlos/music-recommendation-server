@@ -15,16 +15,14 @@ router.post("/save-track", async (req, res) => {
       const userTracks = await userEmail.save();
       res.json({
         data: {
-          email: userTracks.email,
-          tracks: userTracks.tracks,
+          tracks: userTracks.tracks[userTracks.tracks.length - 1],
         },
       });
     } else {
       const savedTrack = await track.save();
       res.json({
         data: {
-          email: savedTrack.email,
-          tracks: savedTrack.tracks,
+          tracks: savedTrack.tracks[savedTrack.tracks.length - 1],
         },
       });
     }

@@ -47,4 +47,25 @@ router.post("/save-tracks", async (req, res) => {
     res.status(400).json({ err });
   }
 });
+
+router.delete("/remove-save-track", async (req, res) => {
+  const userEmail = await SavedTracks.findOne({ email: req.body.email });
+  const trackIndex = userEmail.tracks.findIndex(
+    (track) => track.id === req.body.trackId
+  );
+
+  try {
+    if (trackIndex !== -1) {
+      userEmail.tracks.splice(trackIndex, 1);
+      userEmail.save();
+      res.json({
+        data: userEmail.tracks,
+      });
+    } else {
+      throw new Error('Track not found')
+    }
+  } catch (err) {
+    res.status(400).json({ err });
+  }
+});
 module.exports = router;

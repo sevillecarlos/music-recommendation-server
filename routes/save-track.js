@@ -56,13 +56,13 @@ router.delete("/remove-save-track", async (req, res) => {
 
   try {
     if (trackIndex !== -1) {
-      userEmail.tracks.splice(trackIndex, 1);
+      const [removeTrack] = userEmail.tracks.splice(trackIndex, 1);
       userEmail.save();
       res.json({
-        data: userEmail.tracks,
+        data: { trackId: removeTrack.id },
       });
     } else {
-      throw new Error('Track not found')
+      throw new Error("Track not found");
     }
   } catch (err) {
     res.status(400).json({ err });

@@ -15,16 +15,14 @@ router.post("/save-track", async (req, res) => {
       const userTracks = await userEmail.save();
       res.json({
         data: {
-          email: userTracks.email,
-          tracks: userTracks.tracks,
+          tracks: userTracks.tracks[userTracks.tracks.length - 1],
         },
       });
     } else {
       const savedTrack = await track.save();
       res.json({
         data: {
-          email: savedTrack.email,
-          tracks: savedTrack.tracks,
+          tracks: savedTrack.tracks[savedTrack.tracks.length - 1],
         },
       });
     }
@@ -44,6 +42,27 @@ router.post("/save-tracks", async (req, res) => {
       });
     } else {
       res.json({ data: {} });
+    }
+  } catch (err) {
+    res.status(400).json({ err });
+  }
+});
+
+router.delete("/remove-save-track", async (req, res) => {
+  const userEmail = await SavedTracks.findOne({ email: req.body.email });
+  const trackIndex = userEmail.tracks.findIndex(
+    (track) => track.id === req.body.trackId
+  );
+
+  try {
+    if (trackIndex !== -1) {
+      const [removeTrack] = userEmail.tracks.splice(trackIndex, 1);
+      userEmail.save();
+      res.json({
+        data: { trackId: removeTrack.id },
+      });
+    } else {
+      throw new Error("Track not found");
     }
   } catch (err) {
     res.status(400).json({ err });

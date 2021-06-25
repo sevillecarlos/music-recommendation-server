@@ -27,7 +27,7 @@ mongoose
   .catch((e) => console.log("Error:", e));
 
 app.get("/", (req, res) => {
-  res.send("Sever Express Up");
+  res.send("Server Express Up");
 });
 
 app.listen(port, (err) => {

@@ -8,9 +8,15 @@
     "start": "node index.js",
     "serve": "nodemon index.js"
   },
+  "keywords": [
+    "heroku"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sevillecarlos/music-recommendation-backend.git"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "author": "Carlos A. Sevilla",
   "license": "ISC",

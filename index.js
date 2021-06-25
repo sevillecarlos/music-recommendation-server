@@ -20,11 +20,16 @@ app
   .use(musicRecommendation)
   .use(saveTrack);
 
+app.use(express.static(__dirname + "/public"));
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Database Conected"))
   .catch((e) => console.log("Error:", e));
 
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
+app.get("/", (req, res) => {
+  res.send("Sever Express Up");
+});
+
+app.listen(port, (err) => {
+  throw err;
 });

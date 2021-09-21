@@ -33,8 +33,8 @@ npm run serve
 * *CLIENT_SECRET*
 * *CLIENT_URL*
 
-## Typing Race App
-Navigate to [Typing Race ](https://github.com/sevillecarlos/typing-race) to found the app.
+## Music Recommendation App
+Navigate to [Music Recommendation ](https://github.com/sevillecarlos/music-recommendation) to found the app.
 
 # Author
 ## Carlos Alberto Sevilla Fernandez
@@ -43,7 +43,7 @@ Navigate to [Typing Race ](https://github.com/sevillecarlos/typing-race) to foun
 
 # Contributing
 Contributions, issues and feature requests are welcome!
-Feel free to check the [Issues Page](https://github.com/sevillecarlos/typing-race-server/issues).
+Feel free to check the [Issues Page](https://github.com/sevillecarlos/music-recommendation-server/issues).
 
 # License
 This project is [MIT](https://opensource.org/licenses/MIT) licensed.

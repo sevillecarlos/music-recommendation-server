@@ -33,6 +33,8 @@ npm run serve
 * *CLIENT_SECRET*
 * *CLIENT_URL*
 
+## Typing Race App
+Navigate to [Typing Race ](https://github.com/sevillecarlos/typing-race) to found the app.
 
 # Author
 ## Carlos Alberto Sevilla Fernandez

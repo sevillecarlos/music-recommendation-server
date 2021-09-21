@@ -21,13 +21,13 @@ npm install
 npm run serve
 ```
 ### Create your .env file for the environment variables
-####Database credential for MongoDB
+#### Database credential for MongoDB
 * *USER*
 * *PASSWORD*
 * *DATABASE_NAME*
-####Secret Token for JWT
+#### Secret Token for JWT
 * *TOKEN_SECRET*
-####Spotify Developers Credentials
+#### Spotify Developers Credentials
 * *CLIENT_ID*
 * *REDIRECT_URI*
 * *CLIENT_SECRET*

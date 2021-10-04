@@ -2,10 +2,12 @@
 > The server for the Music Recommendation app.
 # Built
 ## Development Technologies
-- Node.js
-- Express.js
+![](https://img.shields.io/badge/Back--End-Express-green)
+![](https://img.shields.io/badge/Back--End-NodeJs-green)
+![](https://img.shields.io/badge/Programming--Language-JavaScript-yellow)
+
 ## Database
-- MongoDB
+![](https://img.shields.io/badge/Database-MongoDB-green)
 
 # Getting Start
 ```

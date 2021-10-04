@@ -1,5 +1,5 @@
 # Music Recommendation Server
-The server for the Music Recommendation app.
+> The server for the Music Recommendation app.
 # Built
 ## Development Technologies
 - Node.js
